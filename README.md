@@ -192,3 +192,6 @@ composer require inertiajs/inertia-laravel
 ### test
 create a new database named "testing"
 run php artisan test 
+
+### Trello (à supprimer en fin de projet)
+https://trello.com/b/oqEWEpl1/microblogging-map
