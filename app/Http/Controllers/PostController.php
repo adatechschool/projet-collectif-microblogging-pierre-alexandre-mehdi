@@ -17,5 +17,12 @@ class PostController extends Controller
         ]);
     }
     
-    //
+    public function getPosts(Request $request): View
+    {
+        $posts = Post::all();
+
+        return view('posts', [
+            'posts' => $posts,
+        ]);
+    }   
 }

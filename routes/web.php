@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,11 @@ Route::get('/helloWorld', function () {
 });
 
 
-Route::get('/post/{id}', [PostController::class, 'getPost']);
+Route::get('/posts/{id}', [PostController::class, 'getPost']);
+
+Route::get('/users', [UserController::class, 'getUsers']);
+
+Route::get('/users/{id}/posts', [UserController::class, 'getPostsByUser']);
 
 
 Route::get('/dashboard', function () {
