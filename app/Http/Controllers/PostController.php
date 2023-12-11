@@ -25,5 +25,10 @@ class PostController extends Controller
             'posts' => $posts,
         ]);
     }   
+
+    public function create()
+    {
+        return view('wall');
+    }
     
 }

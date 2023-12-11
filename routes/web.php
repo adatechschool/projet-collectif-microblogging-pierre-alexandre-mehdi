@@ -28,6 +28,10 @@ Route::get('/helloWorld', function () {
 
 Route::get('/posts/{id}', [PostController::class, 'getPost']);
 
+Route::get('/wall/create', [PostController::class, 'create'])->name('post.create');
+
+Route::post('/wall/store', [PostController::class, 'store'])->name('post.store');
+
 Route::get('/users', [UserController::class, 'getUsers']);
 
 Route::get('/users/{id}/posts', [UserController::class, 'getPostsByUser']);

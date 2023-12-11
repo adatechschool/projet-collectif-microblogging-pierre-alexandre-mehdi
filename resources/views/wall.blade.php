@@ -5,3 +5,9 @@
 <p>{{$postsByUser}}</p>
 
 <img src="{{$postsByUser->find(14)->image}}" alt="">
+
+@section('content')
+    <div class="container">
+        @include('components.post-form')
+    </div>
+@endsection
