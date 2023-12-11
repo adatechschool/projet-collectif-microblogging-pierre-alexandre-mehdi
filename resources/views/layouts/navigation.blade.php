@@ -15,6 +15,9 @@
                     <x-nav-link :href="route('news')" :active="request()->routeIs('news')">
                         {{ __('News') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('wall')" :active="request()->routeIs('wall')">
+                        {{ __('Wall') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -69,6 +72,9 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('news')" :active="request()->routeIs('news')">
                 {{ __('News') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('wall')" :active="request()->routeIs('wall')">
+                {{ __('Wall') }}
             </x-responsive-nav-link>
         </div>
 

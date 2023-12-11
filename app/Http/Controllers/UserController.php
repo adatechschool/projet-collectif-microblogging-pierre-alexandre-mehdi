@@ -25,6 +25,20 @@ class UserController extends Controller
             'postsByUser' => $user->posts,
         ]);
     }
+
+    public function wall($id)
+    {
+        // Récupérer l'utilisateur à partir de l'ID
+        $user = User::find($id);
+
+        if (!$user) {
+            // Gérer le cas où l'utilisateur n'existe pas
+            abort(404);
+        }
+
+        // Passer les données de l'utilisateur à la vue
+        return view('user.wall', ['user' => $user]);
+    }
 }
     
     

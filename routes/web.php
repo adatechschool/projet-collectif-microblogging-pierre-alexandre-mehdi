@@ -23,13 +23,15 @@ Route::get('/', function () {
 
 Route::get('/news', [PostController::class, 'getPosts'])->name('news');
 
+Route::get('/wall', function () {
+    return view('wall');
+})->middleware(['auth', 'verified'])->name('wall');
+
+Route::get('/posts/{id}', [PostController::class, 'getPost']);
+
 Route::get('/users', [UserController::class, 'getUsers']);
 
 Route::get('/users/{id}/posts', [UserController::class, 'getPostsByUser']);
-
-// Route::get('/news', function () {
-//     return view('news');
-// })->middleware(['auth', 'verified'])->name('news');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
