@@ -21,10 +21,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/helloWorld', function () {
-    return view('helloWorld');
-});
-
+Route::get('/wall', function () {
+    return view('wall');
+})->middleware(['auth', 'verified'])->name('wall');
 
 Route::get('/posts/{id}', [PostController::class, 'getPost']);
 
