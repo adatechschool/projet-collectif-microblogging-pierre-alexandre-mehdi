@@ -21,9 +21,7 @@ class PostController extends Controller
     {
         $posts = Post::all();
 
-        return view('posts', [
-            'posts' => $posts,
-        ]);
+        return view('news', compact('posts'));
     }   
     
 }
