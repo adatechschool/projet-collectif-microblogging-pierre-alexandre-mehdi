@@ -33,9 +33,9 @@ Route::get('/users', [UserController::class, 'getUsers']);
 Route::get('/users/{id}/posts', [UserController::class, 'getPostsByUser']);
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/news', function () {
+    return view('news');
+})->middleware(['auth', 'verified'])->name('news');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
