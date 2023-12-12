@@ -28,12 +28,11 @@ Route::get('/news', [PostController::class, 'getPosts'])->name('news');
 Route::get('/wall/{userId}', [WallController::class, 'show'])->name('wall');
 
 
-
 Route::get('/posts/{id}', [PostController::class, 'getPost']);
 
-// Route::get('/wall', [PostController::class, 'create'])->name('post.create');
+// Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');
 
-// Route::post('/wall/store', [PostController::class, 'store'])->name('post.store');
+Route::post('/posts/store', [PostController::class, 'store'])->name('post.store');
 
 Route::get('/users', [UserController::class, 'getUsers']);
 

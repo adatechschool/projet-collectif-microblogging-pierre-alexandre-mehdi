@@ -1,6 +1,6 @@
 <div>
-    <form method="get" action="{{ route('wall') }}">
-        {{-- @csrf --}}
+    <form method="get" action="{{ route('posts') }}">
+        @csrf
         <div class="form-group">
             <label for="content">Content:</label>
             <textarea name="content" class="form-control" required></textarea>

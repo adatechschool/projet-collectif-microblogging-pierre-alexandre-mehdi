@@ -24,9 +24,5 @@ class PostController extends Controller
         return view('wall', compact('posts'));
     }   
 
-    public function create()
-    {
-        return view('wall');
-    }
     
 }

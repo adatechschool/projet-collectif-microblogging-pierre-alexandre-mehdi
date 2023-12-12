@@ -18,4 +18,5 @@ class WallController extends Controller
     
         return view('wall', compact('user'));
     }
+    
 }
