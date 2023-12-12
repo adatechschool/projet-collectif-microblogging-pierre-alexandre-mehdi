@@ -12,16 +12,16 @@ use App\Models\User;
 
 class WallController extends Controller
 {
-    public function show($userId) {
+    public function show($slug) {
+
+        $user = User::where('slug', $slug)->firstOrFail();
 
         // Vérifie si l'utilisateur est authentifié
         if (!Auth::check()) {
             // Utilisateur non authentifié, redirige-le vers la page de connexion
             return redirect()->route('login');
         }
-        
-        $user = User::findOrFail($userId);
-        // Récupérer les posts de l'utilisateur pour affichage sur le mur
+                // Récupérer les posts de l'utilisateur pour affichage sur le mur
     
         return view('wall', compact('user'));
     }

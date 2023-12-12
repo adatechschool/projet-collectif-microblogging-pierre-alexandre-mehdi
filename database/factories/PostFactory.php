@@ -16,12 +16,12 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
-        //$user_id = \App\Models\User::factory(1)->create()->first()->id;
+        $user_id = \App\Models\User::factory(1)->create()->first()->id;
 
         return [
             'content' => fake()->sentence(10, true),
             'image' => fake()->imageUrl(),
-            'user_id' => 13,
+            'user_id' => $user_id,
         ];
     }
 }
