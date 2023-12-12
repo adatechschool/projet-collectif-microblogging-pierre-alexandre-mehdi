@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 Route::get('/news', [PostController::class, 'getPosts'])->name('news');
 
-Route::middleware('auth')->get('/wall/{userId}', [WallController::class, 'show'])->name('wall');
+Route::middleware('auth')->get('/wall/{slug}', [WallController::class, 'show'])->name('wall');
 
 Route::get('/posts/{id}', [PostController::class, 'getPost']);
 

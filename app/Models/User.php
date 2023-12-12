@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Cviebrock\EloquentSluggable\Sluggable;
+
 
 
 class User extends Authenticatable
@@ -49,6 +51,17 @@ class User extends Authenticatable
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
+    }
+
+    use Sluggable;
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name' // Colonne à partir de laquelle générer le slug
+            ]
+        ];
     }
 
 }
