@@ -27,8 +27,6 @@ Route::get('/news', [PostController::class, 'getPosts'])->name('news');
 
 Route::get('/wall/{userId}', [WallController::class, 'show'])->name('wall');
 
-
-
 Route::get('/posts/{id}', [PostController::class, 'getPost']);
 
 Route::get('/users', [UserController::class, 'getUsers']);
