@@ -19,9 +19,7 @@ use App\Http\Controllers\WallController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PostController::class, 'getPosts'])->name('news');
 
 Route::get('/news', [PostController::class, 'getPosts'])->name('news');
 
