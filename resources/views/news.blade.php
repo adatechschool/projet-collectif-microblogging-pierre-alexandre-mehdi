@@ -21,11 +21,8 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h1>Les dernières actualités</h1>
 
-                    @foreach($posts as $post)
-                        <div class="post">
-                        <img src='{{ $post->image}}'>
-                        <p>{{ $post->content }}</p>
-                        </div>
+                    @foreach ($posts as $post)
+                        <x-post :post="$post"></x-post>
                     @endforeach
                 </div>
             </div>

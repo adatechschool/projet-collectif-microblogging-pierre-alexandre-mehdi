@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WallController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +25,9 @@ Route::get('/', function () {
 
 Route::get('/news', [PostController::class, 'getPosts'])->name('news');
 
-Route::get('/wall', function () {
-    return view('wall');
-})->middleware(['auth', 'verified'])->name('wall');
+Route::get('/wall/{userId}', [WallController::class, 'show'])->name('wall');
+
+
 
 Route::get('/posts/{id}', [PostController::class, 'getPost']);
 
