@@ -26,7 +26,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function wall($id)
+    public function wall($id) : View
     {
         // Récupérer l'utilisateur à partir de l'ID
         $user = User::find($id);
@@ -37,7 +37,7 @@ class UserController extends Controller
         }
 
         // Passer les données de l'utilisateur à la vue
-        return view('user.wall', ['user' => $user]);
+        return view('wall', ['user' => $user]);
     }
 }
     
