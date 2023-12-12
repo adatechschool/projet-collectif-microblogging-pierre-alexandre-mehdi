@@ -15,7 +15,7 @@
                     <x-nav-link :href="route('news')" :active="request()->routeIs('news')">
                         {{ __('News') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('wall', ['userId' => Auth::user()->id])" :active="request()->routeIs('wall')">
+                    <x-nav-link :href="route('wall', ['slug' => Auth::user()->slug])" :active="request()->routeIs('wall')">
                         {{ __('Wall') }}
                     </x-nav-link>
                 </div>
@@ -73,7 +73,7 @@
             <x-responsive-nav-link :href="route('news')" :active="request()->routeIs('news')">
                 {{ __('News') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('wall', ['userId' => Auth::user()->id])" :active="request()->routeIs('wall')">
+            <x-responsive-nav-link :href="route('wall', ['slug' => Auth::user()->slug])" :active="request()->routeIs('wall')">
                 {{ __('Wall') }}
             </x-responsive-nav-link>
         </div>
