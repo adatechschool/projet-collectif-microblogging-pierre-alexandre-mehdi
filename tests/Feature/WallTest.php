@@ -14,7 +14,7 @@ class WallTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->actingAs($user)->get("/wall/{$user->id}");
+        $response = $this->actingAs($user)->get("/wall/{$user->slug}");
 
         $response->assertStatus(200);
     }
@@ -29,11 +29,11 @@ class WallTest extends TestCase
         $this->actingAs($user1);
 
         // Obtenir la réponse pour le mur de l'utilisateur 1 en tant qu'utilisateur 1
-        $response = $this->get("/wall/{$user1->id}");
+        $response = $this->get("/wall/{$user1->slug}");
         $response->assertSee('Formulaire pour créer un nouveau post');
 
         // Obtenir la réponse pour le mur de l'utilisateur 2 en tant qu'utilisateur 1
-        $response = $this->get("/wall/{$user2->id}");
+        $response = $this->get("/wall/{$user2->slug}");
         $response->assertDontSee('Formulaire pour créer un nouveau post');
     }
 }
