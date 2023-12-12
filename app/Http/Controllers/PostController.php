@@ -23,7 +23,7 @@ class PostController extends Controller
     {
         $posts = Post::all();
 
-        return view('wall', compact('posts'));
+        return view('news', compact('posts'));
     }   
 
     public function store(Request $request): RedirectResponse
