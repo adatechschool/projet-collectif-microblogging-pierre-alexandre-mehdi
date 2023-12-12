@@ -8,6 +8,10 @@
                     <!-- Section : Biographie -->
                     <h2 class="text-2xl font-semibold mb-4" style="color: white">{{ $user->biography }}</h2>
 
+                    {{-- @dump (Auth::check())
+                    @dump  (Auth::user()->id)
+                    @dump ($user->id) --}}
+
                     @if (Auth::check() && Auth::user()->id === $user->id)
                         <p>Formulaire pour créer un nouveau post</p>
                         <div class="container">
