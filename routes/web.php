@@ -19,11 +19,13 @@ use App\Http\Controllers\WallController;
 |
 */
 
-Route::get('/', [PostController::class, 'getPosts'])->name('news');
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/news', [PostController::class, 'getPosts'])->name('news');
 
-Route::get('/wall/{userId}', [WallController::class, 'show'])->name('wall');
+Route::middleware('auth')->get('/wall/{userId}', [WallController::class, 'show'])->name('wall');
 
 Route::get('/posts/{id}', [PostController::class, 'getPost']);
 
