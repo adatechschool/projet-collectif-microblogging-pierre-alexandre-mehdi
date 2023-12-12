@@ -1,6 +1,9 @@
 <div>
-    <form method="get" action="{{ route('posts') }}">
-        @csrf
+    <form method="post" action="{{ route('post.store') }}">
+        {{-- @csrf --}}
+        <input id="user_id" name="user_id" type="hidden" value="{{ Auth::user()->id }}">
+
+
         <div class="form-group">
             <label for="content">Content:</label>
             <textarea name="content" class="form-control" required></textarea>

@@ -13,6 +13,7 @@ use App\Models\User;
 class WallController extends Controller
 {
     public function show($userId) {
+        
         $user = User::findOrFail($userId);
         // Récupérer les posts de l'utilisateur pour affichage sur le mur
     
