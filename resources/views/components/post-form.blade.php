@@ -1,10 +1,6 @@
 <div>
-    <form method="post" action="{{ route('post.store') }}">
+    <form method="get" action="{{ route('wall') }}">
         {{-- @csrf --}}
-        <div class="form-group">
-            <label for="title">Title:</label>
-            <input type="text" name="title" class="form-control" required>
-        </div>
         <div class="form-group">
             <label for="content">Content:</label>
             <textarea name="content" class="form-control" required></textarea>

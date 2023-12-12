@@ -21,25 +21,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/helloWorld', function () {
-    return view('helloWorld');
-});
+Route::get('/news', [PostController::class, 'getPosts'])->name('news');
 
+Route::get('/wall', function () {
+    return view('wall');
+})->middleware(['auth', 'verified'])->name('wall');
 
 Route::get('/posts/{id}', [PostController::class, 'getPost']);
 
-Route::get('/wall/create', [PostController::class, 'create'])->name('post.create');
+// Route::get('/wall', [PostController::class, 'create'])->name('post.create');
 
-Route::post('/wall/store', [PostController::class, 'store'])->name('post.store');
+// Route::post('/wall/store', [PostController::class, 'store'])->name('post.store');
 
 Route::get('/users', [UserController::class, 'getUsers']);
 
 Route::get('/users/{id}/posts', [UserController::class, 'getPostsByUser']);
-
-
-Route::get('/news', function () {
-    return view('news');
-})->middleware(['auth', 'verified'])->name('news');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
