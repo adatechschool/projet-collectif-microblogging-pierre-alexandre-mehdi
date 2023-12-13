@@ -1,7 +1,7 @@
 <div class="bg-white border rounded-sm max-w-md relative">
     <div class="flex items-center justify-between px-4 py-3">
         <div class="flex items-center">
-            <img class="h-8 w-8 rounded-full" src="https://picsum.photos/id/1027/150/150" />
+            <img class="h-8 w-8 rounded-full" src="{{ $post->user->profilPicture }}" />
             <div class="ml-3">
                 <a href="{{ route('wall', ['slug' => $post->user->slug]) }}"
                     class="text-sm font-semibold antialiased block leading-tight text-black">{{ $post->user->name }}</a>
