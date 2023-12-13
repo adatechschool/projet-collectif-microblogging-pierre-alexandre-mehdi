@@ -9,6 +9,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -16,22 +17,27 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-            <img src="images/capture_d___e__cran_2023-12-13_a___16.32.00_720-removebg.png" class="flex items-center justify-center"/>
-                <div class="">
-                    @auth
-                        <a href="{{ url('/news') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">News</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="font-size: x-large">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="font-size: x-large">Register</a>
-                        @endif
-                    @endauth
+        <div class="container">
+            <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+                <img src="images/capture_d___e__cran_2023-12-13_a___16.32.00_720-removebg.png" class="img-fluid mb-4" alt="Logo">
+            
+                <div class="d-flex flex-column align-items-center">
+                    @if (Route::has('login'))
+                        <div class="">
+                            @auth
+                                <a href="{{ url('/news') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">News</a>
+                            @else
+                                <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="font-size: x-large">Log in</a>
+            
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="font-size: x-large">Register</a>
+                                @endif
+                            @endauth
+                        </div>
+                    @endif
                 </div>
-            @endif
             </div>
+            
         </div>
     </body>
 </html>
