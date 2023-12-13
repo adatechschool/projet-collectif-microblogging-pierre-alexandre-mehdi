@@ -24,7 +24,7 @@
 
     {{-- Ajoutez cette partie pour afficher l'image --}}
     @if (isset($post) && $post->image)
-        <div class="mt-3">
+        <div class="mt-3 text-black dark:text-white">
             <img src="{{ $post->image }}" alt="Image du post" class="img-fluid">
         </div>
     @endif
