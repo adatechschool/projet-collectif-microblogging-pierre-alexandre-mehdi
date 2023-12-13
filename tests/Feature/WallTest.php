@@ -30,10 +30,10 @@ class WallTest extends TestCase
 
         // Obtenir la réponse pour le mur de l'utilisateur 1 en tant qu'utilisateur 1
         $response = $this->get("/wall/{$user1->slug}");
-        $response->assertSee('Formulaire pour créer un nouveau post');
+        $response->assertSee('Create Post');
 
         // Obtenir la réponse pour le mur de l'utilisateur 2 en tant qu'utilisateur 1
         $response = $this->get("/wall/{$user2->slug}");
-        $response->assertDontSee('Formulaire pour créer un nouveau post');
+        $response->assertDontSee('Create Post');
     }
 }

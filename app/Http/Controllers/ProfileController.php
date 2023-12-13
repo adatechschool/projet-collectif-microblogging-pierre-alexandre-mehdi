@@ -26,10 +26,7 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
 {
-    if ($request->user()->isDirty('email')) {
-        $request->user()->email_verified_at = null;
-    }
-
+  
     $user = Auth::user();
 
     // Met à jour le nom si le champ 'name' du formulaire est renseigné
@@ -50,6 +47,10 @@ class ProfileController extends Controller
     // Met à jour la biographie si le champ 'profilPicture' du formulaire est renseigné
     if ($request->filled('profilPicture')) {
         $user->profilPicture = $request->input('profilPicture');
+    }
+
+    if ($request->user()->isDirty('email')) {
+        $request->user()->email_verified_at = null;
     }
 
     $request->user()->save();
