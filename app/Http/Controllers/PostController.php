@@ -63,6 +63,6 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect()->route('wall', ['slug' => Auth::user()->slug])->with('success', 'Post supprimé avec succès.');
+        return redirect()->back()->with('success', 'Post supprimé avec succès.');
     }
 }
