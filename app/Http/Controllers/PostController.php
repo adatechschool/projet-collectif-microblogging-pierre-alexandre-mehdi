@@ -18,13 +18,13 @@ class PostController extends Controller
             'post' => $post,
         ]);
     }
-    
+
     public function getPosts(Request $request): View
     {
         $posts = Post::all();
 
         return view('news', compact('posts'));
-    }   
+    }
 
     public function store(Request $request): RedirectResponse
     {
@@ -50,23 +50,19 @@ class PostController extends Controller
 
         return redirect()->route('wall', ['slug' => Auth::user()->slug]);
     }
+
+    public function destroy($id): RedirectResponse
+    {
+        $post = Post::findOrFail($id);
+
+        // Vérifier si l'utilisateur est autorisé à supprimer le post (par exemple, s'il en est l'auteur)
+        if ($post->user_id !== Auth::user()->id) {
+            // Gérer l'erreur ou rediriger avec un message d'erreur
+            return redirect()->back()->with('error', 'Vous n\'êtes pas autorisé à supprimer ce post.');
+        }
+
+        $post->delete();
+
+        return redirect()->route('wall', ['slug' => Auth::user()->slug])->with('success', 'Post supprimé avec succès.');
+    }
 }
-
-    //     Validation et traitement du formulaire...
-
-    // $postData = [
-    //     'content' => $request->input('content'),
-    //     'image' => $request->input('image'),
-    // ];
-
-    // // Créer le post
-    // $post = Post::create($postData);
-
-    // // Lier le post à l'utilisateur actuellement authentifié
-    // if (Auth::check()) {
-    //     Auth::user()->posts()->save($post);
-    // }
-
-    // Redirection ou autres actions après la création du post
-//     return redirect('/posts')->with('success', 'Post created successfully');
-// }
