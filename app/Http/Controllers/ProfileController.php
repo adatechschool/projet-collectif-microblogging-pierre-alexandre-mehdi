@@ -47,6 +47,11 @@ class ProfileController extends Controller
         $user->biography = $request->input('biography');
     }
 
+    // Met à jour la biographie si le champ 'profilPicture' du formulaire est renseigné
+    if ($request->filled('profilPicture')) {
+        $user->profilPicture = $request->input('profilPicture');
+    }
+
     $request->user()->save();
 
     return Redirect::route('profile.edit')->with('status', 'profile-updated');
