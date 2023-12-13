@@ -48,7 +48,7 @@ class PostController extends Controller
         ]);
         // dd($post);
 
-        return redirect()->route('wall', ['userId' => Auth::user()->id]);
+        return redirect()->route('wall', ['slug' => Auth::user()->slug]);
     }
 }
 
