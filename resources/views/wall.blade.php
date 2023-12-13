@@ -12,7 +12,7 @@
                     @dump ($user->id) --}}
 
                     @if (Auth::check() && Auth::user()->id === $user->id)
-                        <p class="text-left">Formulaire pour créer un nouveau post</p>
+                        <p>Formulaire pour créer un nouveau post</p>
                         <div class="container">
                             @include('components.post-form')
                         </div>
