@@ -34,19 +34,11 @@ class PostController extends Controller
             'image' => 'required',
         ]);
 
-        // dd(Auth::user()->id);
-        // dd([
-        //     'content' => $request->input('content'),
-        //     'image' => $request->input('image'),
-        //     'user_id' => Auth::user()->id,
-        // ]);
-
         $post = Post::create([
             'content' => $request->input('content'),
             'image' => $request->input('image'),
             'user_id' => Auth::user()->id,
         ]);
-        // dd($post);
 
         return redirect()->route('wall', ['slug' => Auth::user()->slug]);
     }
