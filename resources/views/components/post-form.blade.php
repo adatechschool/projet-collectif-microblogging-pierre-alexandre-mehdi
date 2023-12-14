@@ -12,14 +12,14 @@
     <form method="post" action="{{ route('post.store') }}">
         @csrf
         <div class="form-group">
-            <label for="content">Content:</label>
+            <label for="content">New raclette information: share here!</label>
             <textarea name="content" class="form-control" rows="3" required></textarea>
         </div>
         <div class="form-group">
-            <label for="image">Image URL:</label>
+            <label for="image">Don't forget to add an image to make it appetizing 😋</label>
             <input type="url" name="image" class="form-control" required>
         </div>
-        <button type="submit" class="btn btn-primary">Create Post</button>
+        <x-primary-button>Send Post</x-primary-button>
     </form>
 
     {{-- Ajoutez cette partie pour afficher l'image --}}
