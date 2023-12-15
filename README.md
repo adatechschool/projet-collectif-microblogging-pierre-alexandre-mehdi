@@ -82,14 +82,16 @@ Une fois que vous avez ces prérequis, vous êtes prêt à mettre en place et ex
 
 ## Lancement du projet 💻
 
-Lancement serveur :
+Lancement Docker Desktop (logiciel)
+
+Lancement serveur (via terminal) :
 
 ```bash
 npm run dev
 php artisan serve --port=8001
 ```
 
-### Lancement des tests 🗳️
+## Lancement des tests 🗳️
 
 ```bash
 run php artisan test 
