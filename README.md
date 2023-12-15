@@ -16,19 +16,24 @@ Less utilisateurs peuvent :
 ## Aperçu du projet 🧐
 
 *La page d'accueil du blog*
+
 ![App Screenshot](/public/images/image.png)
 
 *La page de connexion du blog*
+
 ![App Screenshot](/public/images/image(1).png)
 
 *La page News regroupant tout les posts*
+
 ![App Screenshot](/public/images/image(2).png)
 
 *La page Wall regroupant les posts d'un utilisateur (et le formulaire de psot si connecté)*
+
 ![App Screenshot](/public/images/image(3).png)
 ![App Screenshot](/public/images/image(4).png)
 
 *La page pour éditer le profil (biographie, photo profil, modification mot de passe, suppression compte)*
+
 ![App Screenshot](/public/images/image(5).png)
 ![App Screenshot](/public/images/image(6).png)
 ![App Screenshot](/public/images/image(7).png)
