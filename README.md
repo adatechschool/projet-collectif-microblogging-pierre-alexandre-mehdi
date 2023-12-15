@@ -85,6 +85,7 @@ Une fois que vous avez ces prérequis, vous êtes prêt à mettre en place et ex
 Lancement serveur :
 
 ```bash
+npm run dev
 php artisan serve --port=8001
 ```
 
