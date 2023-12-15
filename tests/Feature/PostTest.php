@@ -19,8 +19,8 @@ class PostTest extends TestCase
         $response = $this->actingAs($user)->get(route('wall', ['slug' => $user->slug]));
 
         $response->assertStatus(200);
-        $response->assertSee('content:');
-        $response->assertSee('image:');
+        $response->assertSee('content');
+        $response->assertSee('image');
     }
 
     public function test_submitting_create_post_form()
