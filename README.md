@@ -66,7 +66,19 @@ Less utilisateurs peuvent :
 
 - [ ] ajout de commentaires et likes sous les posts (par les utilisateurs connectés),
 - [ ] faire une fonctionnalité d'abonnement de personnes (ajout et suppresion des abonnements),
-- [ ] création d'un feed personnel (page listant uniquement les posts des membres auxquels l’utilisateur est abonné),
+- [ ] création d'un feed personnel (page listant uniquement les posts des membres auxquels l’utilisateur est abonné).
+
+## Prérequis ⚙️
+
+Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre système :
+
+- **PHP:** Assurez-vous d'avoir PHP installé. Vous pouvez télécharger la dernière version sur [php.net](https://www.php.net/).
+- **Composer:** Le gestionnaire de dépendances PHP. Si vous ne l'avez pas, suivez les instructions d'installation sur [getcomposer.org](https://getcomposer.org/).
+- **Node.js et npm:** Nécessaires pour gérer les dépendances JavaScript. Téléchargez et installez-les à partir de [nodejs.org](https://nodejs.org/).
+- **Docker:** Utilisé pour gérer l'environnement de développement. Téléchargez-le à partir de [docker.com](https://www.docker.com/).
+- **PostgreSQL:** La base de données utilisée dans le projet. Vous pouvez l'installer depuis [postgresql.org](https://www.postgresql.org/).
+
+Une fois que vous avez ces prérequis, vous êtes prêt à mettre en place et exécuter le projet.
 
 ## Lancement du projet 💻
 
