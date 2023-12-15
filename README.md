@@ -1,197 +1,80 @@
-# Plateforme de micro-blogging
+# <p align="center">Raclavel - site de microblogging dédié à la raclette 🧀</p>
 
-## [Windows] Pré-requis : installer WSL 2
+Le projet consiste à développer une plateforme de *micro-blogging*, type Instagram, pour tout les amoureux du fromage fondu. 
+Less utilisateurs peuvent :
+- créer des posts associant une image et un texte,
+- les retrouver regroupés au sein d’une page Wall personelle,
+- voir les posts des autres membres sur leur Wall,
+- voir touts les posts sur une page News,
+- modifier leur profil (biographie et avatar) sur une page dédiée.
+- supprimer un post ou même leur compte.
 
-🟡 Si vous ne l'avez toujours pas fait, installez WSL 2. Voir la [doc officielle de WSL 2](https://learn.microsoft.com/fr-fr/windows/wsl/install).
+## Groupe de 3 personnes - 7 jours 💁‍♂️🙆‍♂️🙋‍♂️
 
-En résumé, WSL (= Windows Sub-system for Linux) installe un système d'exploitation Linux par dessus votre système d'exploitation Windows, mais sans la partie graphique.
+[Mehdi GRIMAULT](https://www.linkedin.com/in/mehdi-grimault/) - [Alexandre TROUILLE](https://www.linkedin.com/in/alexandre-trouille/) - [Pierre GIRARD](https://www.linkedin.com/in/pierre-girard-468214246/)
 
-Ce (sous-)système Linux, est un vrai OS, il vient avec un Terminal de commande et son propre système de fichiers, **indépendant de votre système de fichiers Windows**.
+## Aperçu du projet 🧐
 
-🚩 Pour un environnement de développement optimal, nous vous recommandons fortement d'utiliser ce système Linux **pour tous vos projets**, ainsi que pour tous les outils ou librairies associées que vous seriez amené à installer. Utilisez donc toujours votre shell WSL, et créez vos fichiers et projets toujours sur le système de fichiers WSL.
+*La page d'accueil du blog*
+![App Screenshot](/public/images/image.png){:width="150px"}
 
-Pourquoi ?
-- Les outils de shell Linux sont aujourd'hui un standard dans le développement.
-- Intéragir depuis le shell WSL avec des fichiers existants sur votre système de fichiers Windows peut vous exposer à des problèmes de (fortes) lenteurs. Avec Docker, cela peut même devenir quasi inutilisable. Faites-vous du bien, utilisez WSL par défaut 🫶
+*La page de connexion du blog*
+![App Screenshot](/public/images/image(1).png){:width="150px"}
 
-Sur le site officiel de WSL, vous trouverez plus d'infos sur le [Stockage de fichiers et performances dans les systèmes de fichiers](https://learn.microsoft.com/fr-fr/windows/wsl/filesystems#file-storage-and-performance-across-file-systems).
+*La page News regroupant tout les posts*
+![App Screenshot](/public/images/image(2).png){:width="150px"}
 
+*La page Wall regroupant les posts d'un utilisateur (et le formulaire de psot si connecté)*
+![App Screenshot](/public/images/image(3).png){:width="150px"}
+![App Screenshot](/public/images/image(4).png){:width="150px"}
 
-##  [Windows / Mac / Linux] Pré-requis : installer Docker 
-
-🟡 Installer Docker via le [site officiel de Docker](https://docs.docker.com/get-docker/).
-
-Pour les Windows, choisir l'option d'installation de Docker **avec WSL 2**.
-
----
-
-🟡 S'assurer ensuite qu'il tourne en local sur votre machine :
-
-```
-docker info
-```
-
-
-## [Windows] Pré-requis : cloner le projet 🚩sur le système de fichiers Linux (WSL)🚩
-
-🟡 Si vous avez cloné ce template projet microblogging directement sur le filesystem WSL, bravo vous avez bien suivi le premier pré-requis, vous pouvez passer à l'étape suivante 🎉
-
-Si ce template projet se trouve sur votre système de fichiers Windows, clonez-le de nouveau, mais cette fois-ci sur le système de fichiers WSL.
-
----
-
-🚩 Comment cloner le projet sur le système de fichiers WSL ?
-
-- Ouvrez le terminal WSL
-- Rendez-vous dans votre répertoire `HOME` de votre système de fichiers WSL
-    ```
-    cd ~
-    ```
-- Assurez-vous que votre répertoire courant ne commence pas par `/mnt/c/`.
-
-- S'il commence par `/mnt/c/`, ce n'est pas bon, car cela signifie que vous êtes toujours sur systeme de fichiers Windows, comme mentionné dans la documentation sur les [systèmes de fichiers de WSL](https://learn.microsoft.com/fr-fr/windows/wsl/filesystems#file-storage-and-performance-across-file-systems).
-
-- Si vous êtes bien sur le système de fichiers WSL, c'est bon, créez ou allez dans votre répertoire projet, puis clonez le projet de manière classique.
-  
-
-##  [Windows / Mac / Linux] Pré-requis : configurer l'environnement de développement du projet
-
-Ce projet a été pré-configuré pour vous permettre une installation rapide et automatique de toutes ses dépendances (outils de ligne de commandes PHP, Laravel et ses librairies, des extensions VSCode adaptées au développement PHP). Pour cela on va utiliser la fonctionnalité de ["Dev Containers" de VSCode](https://code.visualstudio.com/docs/devcontainers/containers).
-
----
-
-🟡 Ouvrir le projet dans VSCode. Les fichiers et dossiers du repo doivent constituer **la racine** de l'arborescence du projet sous VS Code.
-
-❗️ Ouvrez bien le projet directement depuis le dossier racine, via "Open Folder", ou via `code .`. L'extension Dev Container ne fonctionne pas depuis un "workspace", donc n'ouvrez pas le dossier via "Add Folder to Workspace".
-
----
-
-🟡 Copier le fichier `.env.example` vers `.env`
-
-```
-cp .env.example .env
-```
-
-❗️ Cette étape est **essentielle** pour permettre la bonne configuration de l'environnement Docker du projet.
-
----
-
-🟡 Installer l'extension VSCode "Dev Containers"
-
----
-
-🟡 Ré-ouvrir le projet dans VSCode **dans Docker** avec la commande "Reopen in Container"
-
-Le projet s'ouvre normalement dans une nouvelle fenêtre VSCode, et démarre le téléchargement des images Docker, puis la construction et l'exécution des containers associés. Cela peut prendre quelques minutes en fonction de la bande passante réseau et de la puissance de votre machine.
-
-À cette étape, VSCode vous propose normalement d'ouvrir les logs Docker, faites-le, essayez de comprendre ce qui s'y déroule, et assurez-vous qu'il n'y ait pas d'erreur.
-
-❓ Une fois terminé, votre projet tourne "sous Docker". Selon vous, qu'est ce que cela signifie ?
-
-❓ Observez également les extensions VSCode installées. D'où viennent ces extensions PHP / Laravel ?
+*La page pour éditer le profil (biographie, photo profil, modification mot de passe, suppression compte)*
+![App Screenshot](/public/images/image(5).png){:width="150px"}
+![App Screenshot](/public/images/image(6).png){:width="150px"}
+![App Screenshot](/public/images/image(7).png){:width="150px"}
 
 
-## Démarrer l'application Laravel
+## Tech Stack 🛠️
 
-🟡 Ouvrir le terminal de VSCode.
+- **Langages:** PHP, HTML, CSS, SQL
+- **Framework / Library:** [Laravel](https://laravel.com/), [Tailwind CSS](https://tailwindcss.com/)
+- **Database:** [PostgreSQL](https://www.postgresql.org/)
+- **Environnement:** [Docker](https://www.docker.com/)
 
-❓ Observez-bien le prompt de votre terminal VSCode. Selon vous, où s'exécute ce terminal ?
+## Fonctionnalités ajoutées 📝
 
----
+- [X] utilisation d'un framework full-stack (Laravel),
+- [X] utilisation d'un framework CSS (Tailwind),
+- [X] conception d'une base de données relationnelle (PostgreSQL),
+- [X] page d'inscription et de connexion,
+- [X] page Wall qui regroupe les posts de tous les utilisateurs,
+- [X] page News qui regroupe tout les posts de tout les utilisateurs,
+- [X] page de profil éditable avec informations utilisateur (avatar, biographie, mot de passe),
+- [X] page utilisateur sur le même format que la page de profil mais non éditable,
+- [X] formulaire de création de nouveaux posts associant une image et un texte,
+- [X] gestion de l'authentification (via Laravel Breeze),
+- [X] génération de fausses données (via DatabaseSeeder),
+- [X] tests.
 
-🟡 Installer les dépendances PHP via `composer`
 
-```
-composer install
+## Reste à implémenter ✏️
+
+- [ ] ajout de commentaires et likes sous les posts (par les utilisateurs connectés),
+- [ ] faire une fonctionnalité d'abonnement de personnes (ajout et suppresion des abonnements),
+- [ ] création d'un feed personnel (page listant uniquement les posts des membres auxquels l’utilisateur est abonné),
+
+## Lancement du projet 💻
+
+Lancement serveur :
+
+```bash
+php artisan serve --port=8001
 ```
 
-Composer est le package manager par défaut de PHP (l'équivalent de `npm` en Node/JS). Les dépendances du projet (i.e. les librairies externes nécessaires) sont décrites dans le fichier `composer.json`. Une fois téléchargées elles sont installées dans le dossier `vendor`.
+### Lancement des tests 🗳️
 
-❓ Selon vous, doit-on commiter ce dossier `vendor` dans le git du projet ?
-
----
-
-🟡 Générer votre "application encryption key" nécessaire à toute application Laravel
-
-```
-php artisan key:generate
-```
-
-Cette commande génère une clé qui est ensuite stockée dans la variable `APP_KEY` de votre `.env`.
-
----
-
-🟡 Lancer le serveur web interne à Laravel
-
-```
-php artisan serve
-```
-
-Vous devriez voir la page par défaut de Laravel en ouvrant l'url indiquée (http://127.0.0.1:8000 si tout se passe bien).
-
-🎉 Bravo, vous l'avez fait, vous avez une application Laravel qui tourne sous Docker !
-
-À ce stade, prenez le temps de vous familiariser avec le fonctionnement de Laravel, en parcourant la doc officielle (fortement recommandé) ou en suivant quelques tutos. Voir les liens à la fin de ce README.
-
-
-## Gestion de la base de données (PostgreSQL)
-
-🟡 Accéder à l'interface d'admin "pgAdmin"
-
-❓ En inspectant le `docker-compose.yml` (et éventuellement le `.env`) pouvez-vous en déduire l'url de connexion à "pgAdmin", ainsi que ses identifiants de connexion ?
-
----
-
-🟡 Une fois connecté à "pgAdmin", configurer la connexion à votre base de données locale, en ajoutant un nouveau "server".
-
-Les identifiants de connexion sont les mêmes que ceux configurés dans le `docker-compose.yml` (et le `.env`).
-
-❗️ Un détail important lié à Docker : le "host" de connexion correspond à l'url du PostgreSQL **à l'intérieur** du réseau Docker. Plutôt que de chercher l'adresse IP interne de votre PG (ce qui est tout à fait possible si vous avez envie d'un défi supplémentaire), vous pouvez utiliser directement le nom défini au sein du `docker-compose.yml` pour le service PG (= `pgsql`).
-
-🎉 Une fois connecté, vous devriez voir une base nommée `microblogging` (i.e le nom correspondant à la variable `DB_DATABASE` du `.env`). Notez que la base existe mais est vide.
-
----
-
-🟡 Initialiser la base de données, en effectuant les migrations Laravel existantes par défaut.
-
-```
-php artisan migrate
-```
-
-À ce stade, observez les tables créées dans votre base PG, et comprenez le lien avec les fichiers présents dans le dossier `database/migrations` du projet.
-
-
-## À propos de Laravel
-
-<p><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="200" alt="Laravel Logo"></a></p>
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
--   [Simple, fast routing engine](https://laravel.com/docs/routing).
--   [Powerful dependency injection container](https://laravel.com/docs/container).
--   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
--   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
--   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
--   [Robust background job processing](https://laravel.com/docs/queues).
--   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-### Se familiariser avec Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-
-### debug 
-composer require inertiajs/inertia-laravel
-
-### test
-create a new database named "testing"
+```bash
 run php artisan test 
+```
 
-### Trello (à supprimer en fin de projet)
-https://trello.com/b/oqEWEpl1/microblogging-map
+# <p align="center">🧀Merci d'avoir lu notre Readme ! N'hésitez pas à nous écrire pour en savoir plus !🧀</p>
