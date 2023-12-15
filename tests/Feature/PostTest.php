@@ -17,7 +17,7 @@ class PostTest extends TestCase
 
         // Accédez à la route wall avec l'utilisateur authentifié
         $response = $this->actingAs($user)->get(route('wall', ['slug' => $user->slug]));
-
+        dump($response->content());
         $response->assertStatus(200);
         $response->assertSee('content');
         $response->assertSee('image');
